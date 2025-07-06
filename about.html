@@ -278,345 +278,121 @@
         .mission-section::before {
             content: '🎮';
             position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 8rem;
+            top: -50px;
+            right: 0;
+            font-size: 5rem;
             opacity: 0.1;
-            transform: rotate(15deg);
+            animation: rotate 5s infinite ease-in-out;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .mission-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 1rem;
         }
 
         .mission-section p {
-            font-size: 1.2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Team Section */
-        .team-section {
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .team-member {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin: 2rem auto;
-            max-width: 600px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .team-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-avatar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .team-member:hover .team-avatar::before {
-            transform: translateX(100%);
-        }
-
-        .team-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .team-role {
-            font-size: 1rem;
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .team-bio {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .contact-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-section p {
             font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 0.8rem;
-                justify-content: center;
-            }
-            
-            .nav-links a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .about-content {
-                padding: 2rem 1rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
+
     <header>
-        <nav class="container">
-            <a href="index.html" class="logo">GameCritic Hub</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="guides.html">Guides</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">GameCritic Hub</a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="container">
+    <main>
         <section class="hero">
-            <h1>About GameCritic Hub</h1>
-            <p>A young gamer's journey to share honest reviews and gaming discoveries with the world</p>
+            <div class="container">
+                <h1>Welcome to GameCritic Hub</h1>
+                <p>Your ultimate source for gaming news, reviews, and articles.</p>
+            </div>
         </section>
 
-        <div class="about-content">
+        <section class="about-content container">
             <div class="about-section">
-                <h2>My Story</h2>
-                <p>
-                    Hi! I'm Fox Pollard, a 12-year-old gamer who loves playing all kinds of games. I started GameCritic Hub because I wanted to share my thoughts about the games I play and help other gamers discover awesome new titles.
-                </p>
-                <p>
-                    This is my first blog ever, and I'm super excited to start this journey! I've been gaming for years and I love everything from action-packed adventures to puzzle games, indie hits to big blockbusters. I want to write honest reviews from a young gamer's perspective.
-                </p>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">Just Starting!</div>
-                    <div class="stat-label">Games Reviewed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">Years Old</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">New</div>
-                    <div class="stat-label">Blog Journey</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Gaming Enthusiasm</div>
-                </div>
-            </div>
-
-            <div class="mission-section">
-                <h2>My Mission</h2>
-                <p>
-                    I want to help other gamers, especially kids like me, find great games to play. I'll write honest reviews about what I think is fun, what's challenging, and what might be worth your time and money. I'm just getting started, but I'm passionate about gaming and excited to share my thoughts!
-                </p>
+                <h2>About Us</h2>
+                <p>GameCritic Hub is dedicated to providing you with the latest gaming news, in-depth reviews, and discussions about the gaming world.</p>
             </div>
 
             <div class="about-section">
-                <h2>What I'll Cover</h2>
-                <p>
-                    I play games on different platforms - PC, console, and mobile. I love trying out new games and will review everything from indie games to the latest releases. I'll focus on what's fun, what's challenging, and whether games are worth playing.
-                </p>
-                <p>
-                    Since I'm just starting out, I'll be learning as I go! I want to get better at writing reviews and maybe even create guides for games I really enjoy. I'm also interested in gaming news and might share cool stuff I discover.
-                </p>
+                <h2>Our Mission</h2>
+                <p>We strive to be the best platform where gamers can connect, explore, and share experiences while getting accurate, unbiased information.</p>
             </div>
+        </section>
 
-            <div class="team-section">
-                <h2>Meet the Team</h2>
-                <div class="team-member">
-                    <div class="team-avatar">🦊</div>
-                    <div class="team-name">Fox Pollard</div>
-                    <div class="team-role">Founder & Young Gamer</div>
-                    <div class="team-bio">
-                        I'm 12 years old and I love playing games! This is my first blog and I'm excited to share my gaming adventures with you. I play all kinds of games and I'm always looking for something new and fun to try.
-                    </div>
-                </div>
+        <!-- Stats Section -->
+        <section class="stats-grid container">
+            <div class="stat-card">
+                <div class="stat-number" id="stat1">0</div>
+                <div class="stat-label">Articles Published</div>
             </div>
-
-            <div class="about-section">
-                <h2>How I Review Games</h2>
-                <p>
-                    I spend time playing each game and think about what makes it fun or not so fun. I'll write about the gameplay, graphics, story, and whether I think it's worth playing. Since I'm young, I might see things differently than adult reviewers - and that's okay!
-                </p>
-                <p>
-                    I'm just starting out, so I'm still learning how to write good reviews. I'll be honest about what I think and try to explain why I liked or didn't like certain games. I want to help other gamers make good choices about what to play next.
-                </p>
+            <div class="stat-card">
+                <div class="stat-number" id="stat2">0</div>
+                <div class="stat-label">Games Reviewed</div>
             </div>
+            <div class="stat-card">
+                <div class="stat-number" id="stat3">0</div>
+                <div class="stat-label">Followers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="stat4">0</div>
+                <div class="stat-label">Years in Operation</div>
+            </div>
+        </section>
 
-
-        </div>
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <h2>Our Vision</h2>
+            <p>At GameCritic Hub, we believe in the power of gaming to bring people together and inspire creativity.</p>
+        </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 GameCritic Hub. All rights reserved.</p>
-            <p>Contact: foxpollard2013@gmail.com | A young gamer's blog</p>
-        </div>
-    </footer>
-
     <script>
-        // Add smooth scrolling animation for sections
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.about-section, .team-member, .stat-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
+        document.addEventListener("DOMContentLoaded", () => {
+            const stats = [
+                { id: "stat1", value: 1200 },
+                { id: "stat2", value: 350 },
+                { id: "stat3", value: 5000 },
+                { id: "stat4", value: 5 }
+            ];
 
-            sections.forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'all 0.6s ease-out';
-                observer.observe(section);
+            stats.forEach(stat => {
+                let targetValue = stat.value;
+                let currentValue = 0;
+                let element = document.getElementById(stat.id);
+                
+                const interval = setInterval(() => {
+                    currentValue += Math.ceil(targetValue / 100);
+                    element.textContent = currentValue;
+                    
+                    if (currentValue >= targetValue) {
+                        clearInterval(interval);
+                    }
+                }, 20);
             });
         });
-
-        // Add counter animation for stats (modified for your stats)
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                if (counter.textContent === '12') {
-                    // Animate your age
-                    let current = 0;
-                    const timer = setInterval(() => {
-                        current += 1;
-                        counter.textContent = current;
-                        if (current >= 12) {
-                            clearInterval(timer);
-                        }
-                    }, 100);
-                }
-            });
-        }
-
-        // Trigger counter animation when stats section is visible
-        const statsSection = document.querySelector('.stats-grid');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
     </script>
+
 </body>
 </html>
