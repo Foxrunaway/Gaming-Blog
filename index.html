@@ -38,28 +38,10 @@
             transition: all 0.3s ease;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
 
         .logo {
@@ -75,61 +57,27 @@
             transition: all 0.3s ease;
         }
 
-        .logo:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.6));
-        }
-
         .nav-links {
             display: flex;
             list-style: none;
             gap: 1.5rem;
-            position: relative;
-            z-index: 2;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
             font-weight: 500;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             position: relative;
             overflow: hidden;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            font-size: 0.9rem;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
         }
 
         .nav-links a:hover {
             color: #4ecdc4;
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-links a:hover::before {
-            left: 100%;
-        }
-
-        /* Main Content */
-        main {
-            background: white;
-            margin: 2rem 0;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
         }
 
         /* Hero Section */
@@ -138,203 +86,18 @@
             color: white;
             padding: 2rem;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .hero h1 {
             font-size: 2.5rem;
             margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin: 0;
-            max-width: 600px;
-        }
-
-        @media (min-width: 768px) {
-            .hero {
-                flex-direction: row;
-                justify-content: space-between;
-                text-align: left;
-                gap: 2rem;
-            }
-            
-            .hero h1 {
-                flex-shrink: 0;
-            }
-            
-            .hero p {
-                text-align: right;
-            }
-        }
-
-        /* Content Area */
         .content-wrapper {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
             padding: 2rem;
-        }
-
-        /* Blog Posts */
-        .blog-posts {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .post {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .post:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .post-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .post-content {
-            padding: 1.5rem;
-        }
-
-        .post-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .post-meta {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .stars {
-            color: #ffd700;
-            font-size: 1.2rem;
-        }
-
-        .score {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-
-        .post-excerpt {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .read-more {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-        }
-
-        .read-more:hover {
-            transform: scale(1.05);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .widget {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .widget h3 {
-            margin-bottom: 1rem;
-            color: #333;
-            font-size: 1.3rem;
-        }
-
-        /* Ad Space */
-        .ad-space {
-            background: #e9ecef;
-            border: 2px dashed #dee2e6;
-            padding: 2rem;
-            text-align: center;
-            border-radius: 10px;
-            color: #6c757d;
-        }
-
-        /* Popular Posts */
-        .popular-post {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .popular-post:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .popular-thumb {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
-
-        .popular-content h4 {
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .popular-content p {
-            font-size: 0.8rem;
-            color: #666;
         }
 
         /* Footer */
@@ -343,102 +106,55 @@
             color: white;
             text-align: center;
             padding: 2rem 0;
-            margin-top: 2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 0.8rem;
-                justify-content: center;
-            }
-            
-            .nav-links a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero p {
-                text-align: center;
-            }
-        }
-
-        /* Edit Mode Styles */
-        .edit-indicator {
-            background: #ffeb3b;
-            color: #333;
-            padding: 0.5rem;
-            text-align: center;
-            font-weight: bold;
-            border-radius: 5px;
-            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
-    <!-- HEADER SECTION - Edit the logo and navigation -->
+    <!-- HEADER SECTION -->
     <header>
         <nav class="container">
-            <a href="#" class="logo">GameCritic Hub</a>
+            <a href="index.html" class="logo">GameCritic Hub</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#guides">Guides</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="guides.html">Guides</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <!-- HERO SECTION - Edit your main headline and description -->
+        <!-- HERO SECTION -->
         <section class="hero">
             <h1>Welcome to GameCritic Hub</h1>
             <p>Your ultimate destination for honest game reviews, insider news, and gaming guides</p>
         </section>
 
         <div class="content-wrapper">
-            <!-- MAIN BLOG POSTS SECTION - Add your game reviews here -->
+            <!-- MAIN BLOG POSTS SECTION -->
             <section class="blog-posts">
                 <div class="edit-indicator">
                     ✏️ EDIT THIS SECTION: Replace with your actual game reviews
                 </div>
-                
-                <!-- SAMPLE GAME REVIEW 1 - Replace with your content -->
+
+                <!-- SAMPLE GAME REVIEW 1 -->
                 <article class="post">
                     <div class="post-image">Game Screenshot Here</div>
                     <div class="post-content">
                         <h2 class="post-title">Insert title</h2>
-                        <div class="post-meta">Insert when published and genre
-                      </div>
+                        <div class="post-meta">Insert when published and genre</div>
                         <div class="rating">
                             <span class="stars">★★★★☆</span>
-                            <span class="score">Inset rating</span>
+                            <span class="score">Insert rating</span>
                         </div>
-                        <p class="post-excerpt">
-                            insert description
-                        </p>
+                        <p class="post-excerpt">Insert description</p>
                         <button class="read-more">Read Full Review</button>
                     </div>
                 </article>
 
-                <!-- SAMPLE GAME REVIEW 2 - Replace with your content -->
+                <!-- SAMPLE GAME REVIEW 2 -->
                 <article class="post">
                     <div class="post-image">Game Screenshot Here</div>
                     <div class="post-content">
@@ -446,28 +162,24 @@
                         <div class="post-meta">Insert when published and genre</div>
                         <div class="rating">
                             <span class="stars">★★★★★</span>
-                            <span class="score">insert rating</span>
+                            <span class="score">Insert rating</span>
                         </div>
-                        <p class="post-excerpt">
-                           insert description
-                        </p>
+                        <p class="post-excerpt">Insert description</p>
                         <button class="read-more">Read Full Review</button>
                     </div>
                 </article>
 
-                <!-- SAMPLE GAME REVIEW 3 - Replace with your content -->
+                <!-- SAMPLE GAME REVIEW 3 -->
                 <article class="post">
                     <div class="post-image">Game Screenshot Here</div>
                     <div class="post-content">
-                        <h2 class="post-title">insert title</h2>
-                        <div class="post-meta">insert when published and genre</div>
+                        <h2 class="post-title">Insert title</h2>
+                        <div class="post-meta">Insert when published and genre</div>
                         <div class="rating">
                             <span class="stars">★★★★☆</span>
-                            <span class="score">insert rating</span>
+                            <span class="score">Insert rating</span>
                         </div>
-                        <p class="post-excerpt">
-                            insert description
-                        </p>
+                        <p class="post-excerpt">Insert description</p>
                         <button class="read-more">Read Full Review</button>
                     </div>
                 </article>
@@ -475,73 +187,18 @@
 
             <!-- SIDEBAR SECTION -->
             <aside class="sidebar">
-                <!-- AD SPACE - Replace with your actual ads -->
+                <!-- AD SPACE -->
                 <div class="widget">
-                    <div class="edit-indicator">
-                        ✏️ EDIT THIS: Replace with Google AdSense code
-                    </div>
                     <div class="ad-space">
                         <h3>Advertisement</h3>
                         <p>Your Google AdSense ads will go here</p>
-                        <p>728x90 or 300x250 banner recommended</p>
-                    </div>
-                </div>
-
-                <!-- POPULAR POSTS WIDGET - Edit with your most popular reviews -->
-                <div class="widget">
-                    <h3>🔥 Popular Reviews</h3>
-                    <div class="popular-post">
-                        <div class="popular-thumb">IMG</div>
-                        <div class="popular-content">
-                            <h4>insert title</h4>
-                            <p>insert mini description line for</p>
-                        </div>
-                    </div>
-                    <div class="popular-post">9
-                        <div class="popular-thumb">IMG</div>
-                        <div class="popular-content">
-                            <h4>insert title</h4>
-                            <p>insert mini description line</p>
-                        </div>
-                    </div>
-                    <div class="popular-post">
-                        <div class="popular-thumb">IMG</div>
-                        <div class="popular-content">
-                            <h4>insert title</h4>
-                            <p>insert mini description line</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CATEGORIES WIDGET - Edit with your game categories -->
-                <div class="widget">
-                    <h3>🎮 Game Categories</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #667eea; text-decoration: none;">🎯 Action Games</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #667eea; text-decoration: none;">🗡️ RPGs</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #667eea; text-decoration: none;">🏎️ Racing</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #667eea; text-decoration: none;">🧩 Puzzle</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #667eea; text-decoration: none;">👥 Multiplayer</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #667eea; text-decoration: none;">📱 Mobile</a></li>
-                    </ul>
-                </div>
-
-                <!-- ANOTHER AD SPACE -->
-                <div class="widget">
-                    <div class="edit-indicator">
-                        ✏️ EDIT THIS: Another ad space
-                    </div>
-                    <div class="ad-space">
-                        <h3>Advertisement</h3>
-                        <p>Second ad placement</p>
-                        <p>Square format works well here</p>
                     </div>
                 </div>
             </aside>
         </div>
     </main>
 
-    <!-- FOOTER SECTION - Edit your contact info and links -->
+    <!-- FOOTER SECTION -->
     <footer>
         <div class="container">
             <p>&copy; 2024 GameCritic Hub. All rights reserved.</p>
