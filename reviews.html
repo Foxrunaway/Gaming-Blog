@@ -1,1 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Reviews - GameCritic Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 50%, rgba(255, 107, 107, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.6));
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        /* Main Content */
+        main {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 2rem;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Games Grid */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .game-card:hover .game-image::before {
+            transform: translateX(100%);
+        }
+
+        .game-info {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .game-genre {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .game-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+
+        .score {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .game-description {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .release-date {
+            color: #888;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-review-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .read-review-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Platform badges */
+        .platforms {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .platform-badge {
+            background: #e9ecef;
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            color: #495057;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .filter-buttons {
+                justify-content: center;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">GameCritic Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="guides.html">Guides</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Game Reviews</h1>
+            <p>In-depth reviews of the latest games across all platforms. Honest opinions, detailed analysis, and everything you need to know before you buy.</p>
+        </section>
+
+        <section class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Games</button>
+                <button class="filter-btn" data-filter="action">Action</button>
+                <button class="filter-btn" data-filter="rpg">RPG</button>
+                <button class="filter-btn" data-filter="adventure">Adventure</button>
+                <button class="filter-btn" data-filter="shooter">Shooter</button>
+                <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+                <button class="filter-btn" data-filter="racing">Racing</button>
+            </div>
+        </section>
+
+        <section class="games-grid">
+            <!-- Game 1 -->
+            <div class="game-card" data-category="action" onclick="goToReview('cyberpunk-2077')">
+                <div class="game-image">🎮 Cyberpunk 2077</div>
+                <div class="game-info">
+                    <h3 class="game-title">Cyberpunk 2077</h3>
+                    <p class="game-genre">Action RPG</p>
+                    <div class="game-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="score">8.5/10</span>
+                    </div>
+                    <div class="platforms">
+                        <span class="platform-badge">PC</span>
+                        <span class="platform-badge">PS5</span>
+                        <span class="platform-badge">Xbox</span>
+                    </div>
+                    <p class="game-description">A sprawling open-world RPG set in the dystopian Night City. Despite its rocky launch, the game has evolved into something truly special.</p>
+                    <p class="release-date">Released: December 10, 2020</p>
+                    <button class="read-review-btn">Read Full Review</button>
+                </div>
+            </div>
+
+            <!-- Game 2 -->
+            <div class="game-card" data-category="adventure" onclick="goToReview('zelda-breath-of-wild')">
+                <div class="game-image">🏹 Zelda: Breath of Wild</div>
+                <div class="game-info">
+                    <h3 class="game-title">The Legend of Zelda: Breath of the Wild</h3>
+                    <p class="game-genre">Adventure</p>
+                    <div class="game-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="score">9.8/10</span>
+                    </div>
+                    <div class="platforms">
+                        <span class="platform-badge">Switch</span>
+                        <span class="platform-badge">Wii U</span>
+                    </div>
+                    <p class="game-description">A masterpiece that redefined open-world gaming. Every hill you see can be climbed, every problem has multiple solutions.</p>
+                    <p class="release-date">Released: March 3, 2017</p>
+                    <button class="read-review-btn">Read Full Review</button>
+                </div>
+            </div>
+
+            <!-- Game 3 -->
+            <div class="game-card" data-category="shooter" onclick="goToReview('call-of-duty-modern-warfare')">
+                <div class="game-image">🔫 Call of Duty MW</div>
+                <div class="game-info">
+                    <h3 class="game-title">Call of Duty: Modern Warfare</h3>
+                    <p class="game-genre">First-Person Shooter</p>
+                    <div class="game-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="score">8.2/10</span>
+                    </div>
+                    <div class="platforms">
+                        <span class="platform-badge">PC</span>
+                        <span class="platform-badge">PS4</span>
+                        <span class="platform-badge">Xbox</span>
+                    </div>
+                    <p class="game-description">A return to form for the franchise with intense multiplayer action and a gripping single-player campaign.</p>
+                    <p class="release-date">Released: October 25, 2019</p>
+                    <button class="read-review-btn">Read Full Review</button>
+                </div>
+            </div>
+
+            <!-- Game 4 -->
+            <div class="game-card" data-category="rpg" onclick="goToReview('elden-ring')">
+                <div class="game-image">⚔️ Elden Ring</div>
+                <div class="game-info">
+                    <h3 class="game-title">Elden Ring</h3>
+                    <p class="game-genre">Action RPG</p>
+                    <div class="game-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="score">9.5/10</span>
+                    </div>
+                    <div class="platforms">
+                        <span class="platform-badge">PC</span>
+                        <span class="platform-badge">PS5</span>
+                        <span class="platform-badge">Xbox</span>
+                    </div>
+                    <p class="game-description">FromSoftware's magnum opus combines Dark Souls gameplay with an open world crafted by George R.R. Martin.</p>
+                    <p class="release-date">Released: February 25, 2022</p>
+                    <button class="read-review-btn">Read Full Review</button>
+                </div>
+            </div>
+
+            <!-- Game 5 -->
+            <div class="game-card" data-category="racing" onclick="goToReview('forza-horizon-5')">
+                <div class="game-image">🏎️ Forza Horizon 5</div>
+                <div class="game-info">
+                    <h3 class="game-title">Forza Horizon 5</h3>
+                    <p class="game-genre">Racing</p>
+                    <div class="game-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="score">9.2/10</span>
+                    </div>
+                    <div class="platforms">
+                        <span class="platform-badge">PC</span>
+                        <span class="platform-badge">Xbox</span>
+                    </div>
+                    <p class="game-description">The ultimate racing playground set in beautiful Mexico. Stunning visuals and incredible car selection make this a must-play.</p>
+                    <p class="release-date">Released: November 9, 2021</p>
+                    <button class="read-review-btn">Read Full Review</button>
+                </div>
+            </div>
+
+            <!-- Game 6 -->
+            <div class="game-card" data-category="puzzle" onclick="goToReview('portal-2')">
+                <div class="game-image">🔮 Portal 2</div>
+                <div class="game-info">
+                    <h3 class="game-title">Portal 2</h3>
+                    <p class="game-genre">Puzzle</p>
+                    <div class="game-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="score">9.7/10</span>
+                    </div>
+                    <div class="platforms">
+                        <span class="platform-badge">PC</span>
+                        <span class="platform-badge">PS3</span>
+                        <span class="platform-badge">Xbox 360</span>
+                    </div>
+                    <p class="game-description">A brilliant puzzle game with perfect writing, innovative mechanics, and unforgettable characters. A true masterpiece.</p>
+                    <p class="release-date">Released: April 19, 2011</p>
+                    <button class="read-review-btn">Read Full Review</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GameCritic Hub. All rights reserved.</p>
+            <p>Contact: foxpollard2013@gmail.com | Follow us on social media</p>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const gameCards = document.querySelectorAll('.game-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                gameCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Function to go to individual review page
+        function goToReview(gameId) {
+            // This will take users to individual review pages
+            // For now, it shows an alert, but you can replace this with actual navigation
+            window.location.href = `review-${gameId}.html`;
+            
+            // Alternative: Show alert for now
+            // alert(`Taking you to the ${gameId} review page!\n\nYou would create a file called 'review-${gameId}.html' for the full review.`);
+        }
+
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.game-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
