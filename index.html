@@ -5,146 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameCritic Hub - Your Gaming Review Destination</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Arial', sans-serif;
-            line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            margin: 0;
         }
-
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* Header */
         header {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 50%, rgba(255, 107, 107, 0.95) 100%);
-            backdrop-filter: blur(20px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
-
-        nav {
+        nav.container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            gap: 2rem;
         }
-
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
             color: white;
             text-decoration: none;
+            margin-right: 2rem;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
         }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
         .nav-links {
             display: flex;
             list-style: none;
             gap: 1.5rem;
-            flex-wrap: wrap;
         }
-
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             padding: 0.5rem 1rem;
             border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            transition: background 0.3s, color 0.3s;
         }
-
+        .nav-links a.active,
         .nav-links a:hover {
-            color: #4ecdc4;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .nav-links a.active {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255,255,255,0.2);
             color: #4ecdc4;
         }
-
         .mobile-menu {
             display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
         }
-
-        /* Hero Section */
         .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            text-align: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="heropattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23heropattern)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 2;
+            margin: 0 auto;
+            max-width: 600px;
         }
-
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            animation: slideInUp 1s ease-out;
         }
-
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: slideInUp 1s ease-out 0.2s both;
         }
-
         .cta-button {
             background: linear-gradient(135deg, #4ecdc4, #45b7d1);
             color: white;
@@ -156,55 +96,35 @@
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
-            animation: slideInUp 1s ease-out 0.4s both;
+            transition: box-shadow 0.3s, transform 0.3s;
         }
-
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
         }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Stats Section */
         .stats-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 2rem;
-            margin: 2rem 0;
+            background: rgba(255,255,255,0.95);
             border-radius: 25px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem 0;
+            width: 90%;
+            display: flex;
+            justify-content: center;
         }
-
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
             gap: 2rem;
+            justify-content: center;
+            width: 100%;
+        }
+        .stat-item {
+            flex: 1;
             text-align: center;
         }
-
-        .stat-item {
-            padding: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: bold;
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
@@ -212,48 +132,35 @@
             background-clip: text;
             margin-bottom: 0.5rem;
         }
-
-        .stat-label {
-            color: #666;
-            font-weight: 500;
-        }
-
-        /* Featured Reviews Section */
-        .featured-section {
-            padding: 3rem 0;
-        }
-
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: white;
-            margin-bottom: 3rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
         }
-
+        .featured-section {
+            margin: 2rem auto;
+            width: 100%;
+        }
         .featured-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
-            margin-bottom: 3rem;
         }
-
+        .featured-main, .quick-review-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
         .featured-main {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        .featured-main:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-        }
-
         .featured-image {
-            height: 300px;
+            height: 220px;
+            width: 100%;
             background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
@@ -261,31 +168,17 @@
             color: white;
             font-size: 1.2rem;
             font-weight: 600;
-            position: relative;
-            overflow: hidden;
         }
-
-        .featured-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="gamepattern" width="15" height="15" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="7" height="7" fill="rgba(255,255,255,0.1)"/><rect x="7" y="7" width="7" height="7" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23gamepattern)"/></svg>');
-        }
-
         .featured-content {
             padding: 2rem;
+            width: 100%;
         }
-
         .featured-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 1rem;
             color: #333;
         }
-
         .featured-meta {
             display: flex;
             gap: 1rem;
@@ -293,7 +186,6 @@
             align-items: center;
             flex-wrap: wrap;
         }
-
         .genre-tag {
             background: linear-gradient(135deg, #ff6b6b, #ee5a52);
             color: white;
@@ -302,18 +194,15 @@
             font-size: 0.9rem;
             font-weight: 500;
         }
-
         .rating {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-
         .stars {
             color: #ffd700;
             font-size: 1.2rem;
         }
-
         .score {
             background: linear-gradient(135deg, #4ecdc4, #45b7d1);
             color: white;
@@ -321,13 +210,11 @@
             border-radius: 15px;
             font-weight: 600;
         }
-
         .featured-excerpt {
             color: #666;
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
-
         .read-more {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -336,110 +223,71 @@
             border-radius: 20px;
             cursor: pointer;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: background 0.3s, transform 0.3s;
         }
-
         .read-more:hover {
             background: linear-gradient(135deg, #4ecdc4, #45b7d1);
             transform: translateY(-2px);
         }
-
-        /* Quick Reviews Sidebar */
         .quick-reviews {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
-
         .quick-review-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
             padding: 1.5rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
         }
-
-        .quick-review-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
         .quick-title {
             font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
             color: #333;
         }
-
         .quick-rating {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 0.8rem;
         }
-
         .quick-excerpt {
             color: #666;
             font-size: 0.9rem;
             line-height: 1.5;
         }
-
-        /* Recent Reviews Grid */
         .recent-reviews {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            display: flex;
             gap: 2rem;
+            justify-content: center;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
-
         .review-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,0.95);
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
         }
-
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-        }
-
         .review-image {
-            height: 200px;
+            height: 120px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 600;
-            position: relative;
-            overflow: hidden;
         }
-
-        .review-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="reviewpattern" width="25" height="25" patternUnits="userSpaceOnUse"><polygon points="12.5,2 22.5,22 2.5,22" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23reviewpattern)"/></svg>');
-        }
-
         .review-content {
             padding: 1.5rem;
         }
-
         .review-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 0.8rem;
             color: #333;
         }
-
         .review-meta {
             display: flex;
             justify-content: space-between;
@@ -448,30 +296,25 @@
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-
         .review-excerpt {
             color: #666;
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
-
-        /* Newsletter Section */
         .newsletter-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,0.95);
             border-radius: 25px;
             padding: 3rem 2rem;
-            margin: 3rem 0;
+            margin: 3rem auto;
             text-align: center;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            width: 90%;
         }
-
         .newsletter-title {
             font-size: 2rem;
             margin-bottom: 1rem;
             color: #333;
         }
-
         .newsletter-form {
             display: flex;
             max-width: 500px;
@@ -480,7 +323,6 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-
         .newsletter-input {
             flex: 1;
             min-width: 250px;
@@ -488,16 +330,8 @@
             border: 2px solid rgba(102, 126, 234, 0.3);
             border-radius: 25px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.8);
-            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.8);
         }
-
-        .newsletter-input:focus {
-            outline: none;
-            border-color: #4ecdc4;
-            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
-        }
-
         .newsletter-btn {
             background: linear-gradient(135deg, #4ecdc4, #45b7d1);
             color: white;
@@ -506,115 +340,49 @@
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s ease;
             white-space: nowrap;
         }
-
-        .newsletter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
-        }
-
-        /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0,0,0,0.9);
             color: white;
             text-align: center;
             padding: 2rem 0;
             margin-top: 3rem;
         }
-
         .footer-content {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
-
         .footer-content a {
             color: #4ecdc4;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
-
         .footer-content a:hover {
             color: #45b7d1;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
+        @media (max-width: 900px) {
             .featured-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .newsletter-form {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .newsletter-input {
-                min-width: auto;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(102, 126, 234, 0.95);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .recent-reviews {
-                grid-template-columns: 1fr;
-            }
-            
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .recent-reviews {
+                flex-direction: column;
+                align-items: center;
             }
         }
-
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 5px;
+            }
             .hero h1 {
                 font-size: 2rem;
             }
-            
             .section-title {
-                font-size: 2rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .featured-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-            
-            .review-meta {
-                flex-direction: column;
-                align-items: flex-start;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -623,15 +391,14 @@
     <!-- HEADER SECTION -->
     <header>
         <nav class="container">
-            <a href="#" class="logo">GameCritic Hub</a>
-            <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Guides</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+            <a href="index.html" class="logo">GameCritic Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="guides.html">Guides</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -639,17 +406,15 @@
     <main>
         <!-- HERO SECTION -->
         <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Welcome to GameCritic Hub</h1>
-                    <p>Your ultimate destination for honest game reviews, insider news, and expert gaming guides</p>
-                    <a href="#featured" class="cta-button">Explore Latest Reviews</a>
-                </div>
+            <div class="container hero-content">
+                <h1>Welcome to GameCritic Hub</h1>
+                <p>Your ultimate destination for honest game reviews, insider news, and expert gaming guides</p>
+                <a href="#featured" class="cta-button">Explore Latest Reviews</a>
             </div>
         </section>
 
         <!-- STATS SECTION -->
-        <section class="stats-section container">
+        <section class="stats-section">
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-number">500+</div>
@@ -673,7 +438,6 @@
         <!-- FEATURED REVIEWS SECTION -->
         <section class="featured-section container" id="featured">
             <h2 class="section-title">Featured Reviews</h2>
-            
             <div class="featured-grid">
                 <!-- MAIN FEATURED REVIEW -->
                 <article class="featured-main">
@@ -695,7 +459,6 @@
                         <button class="read-more" onclick="showAlert('Opening full review...')">Read Full Review</button>
                     </div>
                 </article>
-
                 <!-- QUICK REVIEWS SIDEBAR -->
                 <aside class="quick-reviews">
                     <article class="quick-review-card">
@@ -708,7 +471,6 @@
                             A brilliant puzzle game that challenges your mind with creative mechanics and beautiful art.
                         </p>
                     </article>
-
                     <article class="quick-review-card">
                         <h4 class="quick-title">Racing Simulator Pro</h4>
                         <div class="quick-rating">
@@ -719,7 +481,6 @@
                             The most realistic racing experience you can get without leaving your living room.
                         </p>
                     </article>
-
                     <article class="quick-review-card">
                         <h4 class="quick-title">Horror Game Nightmare</h4>
                         <div class="quick-rating">
@@ -732,7 +493,6 @@
                     </article>
                 </aside>
             </div>
-
             <!-- RECENT REVIEWS GRID -->
             <div class="recent-reviews">
                 <article class="review-card">
@@ -752,7 +512,6 @@
                         <button class="read-more" onclick="showAlert('Opening review...')">Read Review</button>
                     </div>
                 </article>
-
                 <article class="review-card">
                     <div class="review-image">🚀 Game Screenshot Here</div>
                     <div class="review-content">
@@ -770,7 +529,6 @@
                         <button class="read-more" onclick="showAlert('Opening review...')">Read Review</button>
                     </div>
                 </article>
-
                 <article class="review-card">
                     <div class="review-image">⚔️ Game Screenshot Here</div>
                     <div class="review-content">
@@ -792,7 +550,7 @@
         </section>
 
         <!-- NEWSLETTER SECTION -->
-        <section class="newsletter-section container">
+        <section class="newsletter-section">
             <h2 class="newsletter-title">Stay Updated with Gaming News</h2>
             <p>Get the latest reviews, news, and gaming tips delivered to your inbox</p>
             <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
@@ -813,31 +571,11 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
-            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-            }
-        });
-
         // Smooth scrolling for CTA button
         document.querySelector('.cta-button').addEventListener('click', function(e) {
             e.preventDefault();
-            document.querySelector('#featured').scrollIntoView({
-                behavior: 'smooth'
-            });
+            document.querySelector('#featured').scrollIntoView({ behavior: 'smooth' });
         });
-
         // Newsletter form submission
         function handleNewsletterSubmit(e) {
             e.preventDefault();
@@ -847,26 +585,10 @@
                 document.querySelector('.newsletter-input').value = '';
             }
         }
-
         // Generic alert function for demo purposes
         function showAlert(message) {
             alert(message);
         }
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        const animateElements = document.querySelectorAll('.review-card, .quick-review-car
+    </script>
+</body>
+</html>
