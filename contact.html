@@ -8,18 +8,51 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 50%, rgba(255, 107, 107, 0.95) 100%); backdrop-filter: blur(20px); padding: 0.8rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
-        header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); animation: shimmer 3s infinite; }
-        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+        header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 50%, rgba(255, 107, 107, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
         nav { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
-        .logo { font-size: 1.6rem; font-weight: bold; color: white; text-decoration: none; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 30px rgba(255, 255, 255, 0.5); transition: all 0.3s ease; }
-        .logo:hover { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.6)); }
-        .nav-links { display: flex; list-style: none; gap: 1.5rem; position: relative; z-index: 2; }
-        .nav-links a { color: white; text-decoration: none; transition: all 0.3s ease; font-weight: 500; padding: 0.5rem 1rem; border-radius: 20px; position: relative; overflow: hidden; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 0.9rem; }
-        .nav-links a::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); transition: left 0.5s ease; }
-        .nav-links a:hover { color: #4ecdc4; background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
-        .nav-links a:hover::before { left: 100%; }
-        .nav-links a.active { background: rgba(255, 255, 255, 0.2); color: #4ecdc4; }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            background: none;
+            box-shadow: none;
+            transition: none;
+            /* No hover or before effects */
+        }
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: #4ecdc4;
+        }
         main { background: white; margin: 2rem 0; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); overflow: hidden; }
         .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 2rem; text-align: center; position: relative; overflow: hidden; }
         .hero h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); position: relative; z-index: 2; }
@@ -77,4 +110,3 @@
     </footer>
 </body>
 </html>
-
