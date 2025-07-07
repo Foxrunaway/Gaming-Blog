@@ -159,10 +159,10 @@
         }
         .featured-content {
             padding: 2.5rem 2.2rem 2.2rem 2.2rem;
-            width: 100%;
+            width: auto;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            word-break: break-word;
         }
         .featured-title {
             font-size: 1.5rem;
@@ -378,6 +378,7 @@
             }
             .featured-content {
                 padding: 1.3rem 0.7rem 1.1rem 0.7rem;
+                width: auto;
             }
             .featured-main {
                 border-radius: 16px;
@@ -430,9 +431,7 @@
             <div class="featured-grid">
                 <!-- MAIN FEATURED REVIEW: Minecraft -->
                 <article class="featured-main">
-                    <div class="featured-image" style="background-image:url('https://xboxwire.thesourcemediaassets.com/sites/2/2024/05/Hero-8c18da7c19a1a8811ddb.jpg'); background-size:cover; background-position:center;">
-                        <span style="display:none;">Minecraft Screenshot</span>
-                    </div>
+                    <div class="featured-image"></div>
                     <div class="featured-content">
                         <h3 class="featured-title">Minecraft Review</h3>
                         <div class="featured-meta">
@@ -576,10 +575,6 @@
                 alert('Thank you for subscribing! We\'ll keep you updated with the latest gaming news.');
                 document.querySelector('.newsletter-input').value = '';
             }
-        }
-        // Generic alert function for demo purposes
-        function showAlert(message) {
-            alert(message);
         }
     </script>
 </body>
