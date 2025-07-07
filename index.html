@@ -138,31 +138,41 @@
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
         }
-        .featured-main, .quick-review-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
+        /* Improved Featured Main Box */
         .featured-main {
+            background: rgba(255,255,255,0.98);
+            border-radius: 28px;
+            box-shadow: 0 12px 48px rgba(102,126,234,0.13);
+            margin-bottom: 2rem;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: stretch;
+            border: 1.5px solid #eee;
+            transition: box-shadow 0.3s;
+        }
+        .featured-main:hover {
+            box-shadow: 0 18px 64px rgba(102,126,234,0.18);
         }
         .featured-image {
-            height: 220px;
+            height: 230px;
             width: 100%;
             background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 600;
+            border-top-left-radius: 28px;
+            border-top-right-radius: 28px;
         }
         .featured-content {
-            padding: 2rem;
+            padding: 2.5rem 2.2rem 2.2rem 2.2rem;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         .featured-title {
             font-size: 1.5rem;
@@ -226,7 +236,11 @@
             gap: 1.5rem;
         }
         .quick-review-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
             padding: 1.5rem;
+            margin-bottom: 2rem;
         }
         .quick-title {
             font-size: 1.1rem;
@@ -370,6 +384,18 @@
             }
             .section-title {
                 font-size: 1.3rem;
+            }
+            .featured-content {
+                padding: 1.3rem 0.7rem 1.1rem 0.7rem;
+            }
+            .featured-main {
+                border-radius: 16px;
+            }
+            .featured-image {
+                border-top-left-radius: 16px;
+                border-top-right-radius: 16px;
+                font-size: 1.1rem;
+                height: 140px;
             }
         }
     </style>
