@@ -206,6 +206,32 @@
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
+        .quick-facts {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.2rem 1.2rem 1rem 1.2rem;
+            margin-bottom: 1.2rem;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            color: #444;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+        .quick-facts-row {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .platform-icon {
+            font-size: 1.1rem;
+            margin-right: 0.2rem;
+        }
+        .fact-label {
+            font-weight: 600;
+            color: #667eea;
+            margin-right: 0.3rem;
+        }
         .read-more {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -215,6 +241,8 @@
             cursor: pointer;
             font-weight: 500;
             transition: background 0.3s, transform 0.3s;
+            margin-top: 0.7rem;
+            align-self: flex-start;
         }
         .read-more:hover {
             background: linear-gradient(135deg, #4ecdc4, #45b7d1);
@@ -444,6 +472,26 @@
                         <p class="featured-excerpt">
                             Minecraft is the ultimate sandbox adventure, letting you build, survive, and explore infinite worlds. Its creative freedom, endless updates, and thriving community make it a timeless classic for gamers of all ages.
                         </p>
+                        <div class="quick-facts">
+                            <div class="quick-facts-row">
+                                <span class="platform-icon">💻</span>
+                                <span class="platform-icon">🎮</span>
+                                <span class="platform-icon">📱</span>
+                                <span class="fact-label">Platforms:</span> PC, Console, Mobile
+                            </div>
+                            <div class="quick-facts-row">
+                                <span class="fact-label">Release:</span> November 18, 2011
+                            </div>
+                            <div class="quick-facts-row">
+                                <span class="fact-label">Best for:</span> Builders & Explorers
+                            </div>
+                            <div class="quick-facts-row">
+                                <span class="fact-label">Multiplayer:</span> Yes
+                            </div>
+                            <div class="quick-facts-row">
+                                <span class="fact-label">Mods:</span> Supported
+                            </div>
+                        </div>
                         <button class="read-more" onclick="location.href='minecraft.html'">Read Full Review</button>
                     </div>
                 </article>
