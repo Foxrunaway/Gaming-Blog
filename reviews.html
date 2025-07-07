@@ -134,17 +134,37 @@
         .game-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: #333;
+            background-size: cover;
+            background-position: center;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-end;
+            justify-content: flex-start;
             color: white;
             font-size: 1.2rem;
             font-weight: bold;
+            padding: 1rem;
         }
         .game-image.minecraft {
-            background: url('https://xboxwire.thesourcemediaassets.com/sites/2/2024/05/Hero-8c18da7c19a1a8811ddb.jpg') center center/cover no-repeat;
-            font-size: 0;
+            background-image: url('https://xboxwire.thesourcemediaassets.com/sites/2/2024/05/Hero-8c18da7c19a1a8811ddb.jpg');
+        }
+        .game-image.pubg {
+            background-image: url('https://cdn1.epicgames.com/spt-assets/53ec4985296b4facbe3a8d8d019afba9/pubg-battlegrounds-19vwb.jpg');
+        }
+        .game-image.mirage {
+            background-image: url('https://i0.wp.com/waytoomany.games/wp-content/uploads/2023/10/975baf30-4302-44ce-af65-ced67d42283f-1.png?fit=3840%2C2160&ssl=1');
+        }
+        .game-image.diablo4 {
+            background-image: url('https://blz-contentstack-images.akamaized.net/v3/assets/blt77f4425de611b362/blt6d7b0fd8453e72b9/646e720a71d9db111a265e8c/d4-open-graph_001.jpg');
+        }
+        .game-image.fortnite {
+            background-image: url('https://cdn1.epicgames.com/offer/fn/FNECO_36-10_ForbiddenFruit_EGS_Launcher_KeyArt_Blade_2560x1440_2560x1440-abce17aa0386b48069aa42c1ebf7b864');
+        }
+        .game-image.rdr2 {
+            background-image: url('https://www.godisageek.com/wp-content/uploads/Red-Dead-Redemption-2-PC-review-1024x576.jpg');
+        }
+        .game-image.codwarzone {
+            background-image: url('https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1962663/54bd6a40eb3759aca46966aadd4c4d0d84b2713e/header.jpg?t=1748534520');
         }
         .game-info {
             padding: 1.5rem;
@@ -279,7 +299,7 @@
         <section class="games-grid">
             <!-- Minecraft -->
             <div class="game-card" data-category="sandbox">
-                <div class="game-image minecraft"></div>
+                <div class="game-image minecraft" title="Minecraft"></div>
                 <div class="game-info">
                     <h3 class="game-title">Minecraft</h3>
                     <p class="game-genre">Sandbox</p>
@@ -298,7 +318,7 @@
             </div>
             <!-- PUBG -->
             <div class="game-card" data-category="battle-royale">
-                <div class="game-image">🎯 PUBG</div>
+                <div class="game-image pubg" title="PUBG"></div>
                 <div class="game-info">
                     <h3 class="game-title">PUBG: Battlegrounds</h3>
                     <p class="game-genre">Battle Royale</p>
@@ -317,7 +337,7 @@
             </div>
             <!-- Assassin's Creed Mirage -->
             <div class="game-card" data-category="action">
-                <div class="game-image">🗡️ Mirage</div>
+                <div class="game-image mirage" title="Assassin's Creed Mirage"></div>
                 <div class="game-info">
                     <h3 class="game-title">Assassin's Creed Mirage</h3>
                     <p class="game-genre">Action / Stealth</p>
@@ -336,7 +356,7 @@
             </div>
             <!-- Diablo 4 -->
             <div class="game-card" data-category="rpg">
-                <div class="game-image">🔥 Diablo 4</div>
+                <div class="game-image diablo4" title="Diablo 4"></div>
                 <div class="game-info">
                     <h3 class="game-title">Diablo 4</h3>
                     <p class="game-genre">Action RPG</p>
@@ -355,7 +375,7 @@
             </div>
             <!-- Fortnite -->
             <div class="game-card" data-category="battle-royale">
-                <div class="game-image">🕹️ Fortnite</div>
+                <div class="game-image fortnite" title="Fortnite"></div>
                 <div class="game-info">
                     <h3 class="game-title">Fortnite</h3>
                     <p class="game-genre">Battle Royale</p>
@@ -374,7 +394,7 @@
             </div>
             <!-- Red Dead Redemption 2 -->
             <div class="game-card" data-category="adventure">
-                <div class="game-image">🤠 RDR2</div>
+                <div class="game-image rdr2" title="Red Dead Redemption 2"></div>
                 <div class="game-info">
                     <h3 class="game-title">Red Dead Redemption 2</h3>
                     <p class="game-genre">Adventure</p>
@@ -393,7 +413,7 @@
             </div>
             <!-- COD Warzone -->
             <div class="game-card" data-category="shooter">
-                <div class="game-image">🔫 Warzone</div>
+                <div class="game-image codwarzone" title="Call of Duty: Warzone"></div>
                 <div class="game-info">
                     <h3 class="game-title">Call of Duty: Warzone</h3>
                     <p class="game-genre">Shooter</p>
