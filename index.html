@@ -29,7 +29,7 @@
         header {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 50%, rgba(255, 107, 107, 0.95) 100%);
             backdrop-filter: blur(20px);
-            padding: 0.8rem 0;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -42,10 +42,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: white;
             text-decoration: none;
@@ -57,10 +58,15 @@
             transition: all 0.3s ease;
         }
 
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
             gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -84,6 +90,15 @@
         .nav-links a.active {
             background: rgba(255, 255, 255, 0.2);
             color: #4ecdc4;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -166,7 +181,7 @@
         .stats-section {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            padding: 2rem 0;
+            padding: 2rem;
             margin: 2rem 0;
             border-radius: 25px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -181,6 +196,11 @@
 
         .stat-item {
             padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
         }
 
         .stat-number {
@@ -271,6 +291,7 @@
             gap: 1rem;
             margin-bottom: 1rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .genre-tag {
@@ -367,7 +388,7 @@
         /* Recent Reviews Grid */
         .recent-reviews {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -424,6 +445,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .review-excerpt {
@@ -452,12 +475,15 @@
         .newsletter-form {
             display: flex;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 2rem auto 0;
             gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .newsletter-input {
             flex: 1;
+            min-width: 250px;
             padding: 1rem;
             border: 2px solid rgba(102, 126, 234, 0.3);
             border-radius: 25px;
@@ -481,40 +507,12 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .newsletter-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .widget {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .widget h3 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .ad-space {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            border-radius: 15px;
-            border: 2px dashed rgba(102, 126, 234, 0.3);
         }
 
         /* Footer */
@@ -526,10 +524,30 @@
             margin-top: 3rem;
         }
 
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-content a {
+            color: #4ecdc4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content a:hover {
+            color: #45b7d1;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
             }
             
             .featured-grid {
@@ -538,10 +556,65 @@
             
             .newsletter-form {
                 flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .newsletter-input {
+                min-width: auto;
             }
             
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(102, 126, 234, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .recent-reviews {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .review-meta {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -550,14 +623,15 @@
     <!-- HEADER SECTION -->
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">GameCritic Hub</a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="guides.html">Guides</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <a href="#" class="logo">GameCritic Hub</a>
+            <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -603,7 +677,7 @@
             <div class="featured-grid">
                 <!-- MAIN FEATURED REVIEW -->
                 <article class="featured-main">
-                    <div class="featured-image">Game Screenshot Here</div>
+                    <div class="featured-image">🎮 Game Screenshot Here</div>
                     <div class="featured-content">
                         <h3 class="featured-title">Epic Adventure Game Review</h3>
                         <div class="featured-meta">
@@ -618,7 +692,7 @@
                             With breathtaking visuals, compelling storytelling, and gameplay that keeps you 
                             engaged for hours on end, this is a must-play title for any gaming enthusiast.
                         </p>
-                        <button class="read-more">Read Full Review</button>
+                        <button class="read-more" onclick="showAlert('Opening full review...')">Read Full Review</button>
                     </div>
                 </article>
 
@@ -662,7 +736,7 @@
             <!-- RECENT REVIEWS GRID -->
             <div class="recent-reviews">
                 <article class="review-card">
-                    <div class="review-image">Game Screenshot Here</div>
+                    <div class="review-image">🏗️ Game Screenshot Here</div>
                     <div class="review-content">
                         <h3 class="review-title">Strategy Empire Builder</h3>
                         <div class="review-meta">
@@ -675,12 +749,12 @@
                         <p class="review-excerpt">
                             A deep and engaging strategy game that will keep you building and conquering for hours.
                         </p>
-                        <button class="read-more">Read Review</button>
+                        <button class="read-more" onclick="showAlert('Opening review...')">Read Review</button>
                     </div>
                 </article>
 
                 <article class="review-card">
-                    <div class="review-image">Game Screenshot Here</div>
+                    <div class="review-image">🚀 Game Screenshot Here</div>
                     <div class="review-content">
                         <h3 class="review-title">Space Exploration Odyssey</h3>
                         <div class="review-meta">
@@ -693,12 +767,12 @@
                         <p class="review-excerpt">
                             An incredible journey through the cosmos with stunning visuals and compelling narrative.
                         </p>
-                        <button class="read-more">Read Review</button>
+                        <button class="read-more" onclick="showAlert('Opening review...')">Read Review</button>
                     </div>
                 </article>
 
                 <article class="review-card">
-                    <div class="review-image">Game Screenshot Here</div>
+                    <div class="review-image">⚔️ Game Screenshot Here</div>
                     <div class="review-content">
                         <h3 class="review-title">Multiplayer Battle Arena</h3>
                         <div class="review-meta">
@@ -711,7 +785,7 @@
                         <p class="review-excerpt">
                             Fast-paced action with excellent multiplayer mechanics and competitive gameplay.
                         </p>
-                        <button class="read-more">Read Review</button>
+                        <button class="read-more" onclick="showAlert('Opening review...')">Read Review</button>
                     </div>
                 </article>
             </div>
@@ -721,7 +795,7 @@
         <section class="newsletter-section container">
             <h2 class="newsletter-title">Stay Updated with Gaming News</h2>
             <p>Get the latest reviews, news, and gaming tips delivered to your inbox</p>
-            <form class="newsletter-form">
+            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
                 <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
                 <button type="submit" class="newsletter-btn">Subscribe</button>
             </form>
@@ -731,12 +805,31 @@
     <!-- FOOTER SECTION -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 GameCritic Hub. All rights reserved.</p>
-            <p>Contact: foxpollard2013@gmail.com | Follow us on social media</p>
+            <div class="footer-content">
+                <p>&copy; 2024 GameCritic Hub. All rights reserved.</p>
+                <p>Contact: <a href="mailto:foxpollard2013@gmail.com">foxpollard2013@gmail.com</a> | Follow us on social media</p>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
         // Smooth scrolling for CTA button
         document.querySelector('.cta-button').addEventListener('click', function(e) {
             e.preventDefault();
@@ -746,24 +839,19 @@
         });
 
         // Newsletter form submission
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+        function handleNewsletterSubmit(e) {
             e.preventDefault();
             const email = document.querySelector('.newsletter-input').value;
-            alert('Thank you for subscribing! We\'ll keep you updated with the latest gaming news.');
-            document.querySelector('.newsletter-input').value = '';
-        });
+            if (email) {
+                alert('Thank you for subscribing! We\'ll keep you updated with the latest gaming news.');
+                document.querySelector('.newsletter-input').value = '';
+            }
+        }
 
-        // Add hover effects to cards
-        const cards = document.querySelectorAll('.review-card, .featured-main, .quick-review-card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
+        // Generic alert function for demo purposes
+        function showAlert(message) {
+            alert(message);
+        }
 
         // Animate elements on scroll
         const observerOptions = {
@@ -781,13 +869,4 @@
         }, observerOptions);
 
         // Observe elements for animation
-        const animateElements = document.querySelectorAll('.review-card, .quick-review-card, .stat-item');
-        animateElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease-out';
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+        const animateElements = document.querySelectorAll('.review-card, .quick-review-car
