@@ -247,3 +247,134 @@
         }
         .mission-section::before {
             content: '🎮';
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            font-size: 6rem;
+            opacity: 0.07;
+            transform: rotate(13deg);
+        }
+        footer {
+            background: rgba(0,0,0,0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0 1.2rem 0;
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+        @media (max-width: 600px) {
+            .container, main { padding: 0 4px; }
+            .hero h1 { font-size: 1.45rem; }
+            .about-section h2, .team-section h2, .mission-section h2 { font-size: 1.1rem; }
+            .stat-card { min-width: 100px; padding: 1rem 0.7rem; }
+            .stats-grid { gap: 0.7rem; }
+            .team-member-list { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">GameCritic Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="guides.html">Guides</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>About GameCritic Hub</h1>
+            <p>A young gamer's journey to share honest reviews and gaming discoveries with the world.</p>
+        </section>
+
+        <section class="about-content container">
+            <div class="about-section">
+                <h2>My Story</h2>
+                <p>
+                    Hi! I'm Fox Pollard, a 12-year-old gamer who loves playing all kinds of games. I started GameCritic Hub because I wanted to share my thoughts about the games I play and help other gamers discover awesome new titles.
+                </p>
+                <p>
+                    This is my first blog ever, and I'm super excited to start this journey! I've been gaming for years and I love everything from action-packed adventures to puzzle games, indie hits to big blockbusters. I want to write honest reviews from a young gamer's perspective.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>What I'll Cover</h2>
+                <p>
+                    I play games on different platforms - PC, console, and mobile. I love trying out new games and will review everything from indie games to the latest releases. I'll focus on what's fun, what's challenging, and whether games are worth playing.
+                </p>
+                <p>
+                    Since I'm just starting out, I'll be learning as I go! I want to get better at writing reviews and maybe even create guides for games I really enjoy. I'm also interested in gaming news and might share cool stuff I discover.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>How I Review Games</h2>
+                <p>
+                    I spend time playing each game and think about what makes it fun or not so fun. I'll write about the gameplay, graphics, story, and whether I think it's worth playing. Since I'm young, I might see things differently than adult reviewers - and that's okay!
+                </p>
+                <p>
+                    I'm just starting out, so I'm still learning how to write good reviews. I'll be honest about what I think and try to explain why I liked or didn't like certain games. I want to help other gamers make good choices about what to play next.
+                </p>
+            </div>
+        </section>
+
+        <div class="stats-grid-wrapper">
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">Just Starting!</div>
+                    <div class="stat-label">Games Reviewed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Years Old</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">New</div>
+                    <div class="stat-label">Blog Journey</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Gaming Enthusiasm</div>
+                </div>
+            </section>
+        </div>
+
+        <section class="team-section container">
+            <h2>Meet the Team</h2>
+            <div class="team-member-list">
+                <div class="team-member">
+                    <div class="team-avatar">🦊</div>
+                    <div class="team-name">Fox Pollard</div>
+                    <div class="team-role">Founder & Young Gamer</div>
+                    <div class="team-bio">
+                        I'm 12 years old and I love playing games! This is my first blog and I'm excited to share my gaming adventures with you. I play all kinds of games and I'm always looking for something new and fun to try.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="mission-section-wrapper">
+            <section class="mission-section">
+                <h2>My Mission</h2>
+                <p>
+                    I want to help other gamers, especially kids like me, find great games to play. I'll write honest reviews about what I think is fun, what's challenging, and what might be worth your time and money. I'm just getting started, but I'm passionate about gaming and excited to share my thoughts!
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GameCritic Hub. All rights reserved.</p>
+            <p>Contact: foxpollard2013@gmail.com | A young gamer's blog</p>
+        </div>
+    </footer>
+</body>
+</html>
