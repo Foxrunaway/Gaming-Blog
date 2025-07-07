@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GameCritic Hub - Your Gaming Review Destination</title>
     <style>
         body {
@@ -61,7 +61,6 @@
             background: rgba(255,255,255,0.2);
             color: #4ecdc4;
         }
-        /* What's New Bar */
         .whatsnew-bar {
             background: linear-gradient(90deg, #764ba2 60%, #4ecdc4 100%);
             color: #fff;
@@ -72,7 +71,6 @@
             font-weight: 500;
             box-shadow: 0 2px 12px rgba(102,126,234,0.08);
         }
-        /* Hero/Main Card */
         .hero-card {
             background: #fff;
             margin: 2.5rem auto 2rem auto;
@@ -122,7 +120,6 @@
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
         }
-        /* Featured Reviews Section */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
@@ -138,7 +135,6 @@
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
         }
-        /* Improved Featured Main Box */
         .featured-main {
             background: rgba(255,255,255,0.98);
             border-radius: 28px;
@@ -157,13 +153,7 @@
         .featured-image {
             height: 230px;
             width: 100%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
+            background: url('https://xboxwire.thesourcemediaassets.com/sites/2/2024/05/Hero-8c18da7c19a1a8811ddb.jpg') center center/cover no-repeat;
             border-top-left-radius: 28px;
             border-top-right-radius: 28px;
         }
@@ -283,6 +273,7 @@
             justify-content: center;
             color: white;
             font-weight: 600;
+            font-size: 2rem;
         }
         .review-content {
             padding: 1.5rem;
@@ -418,7 +409,7 @@
 
     <!-- What's New Bar -->
     <div class="whatsnew-bar">
-        🎉 What's New: Check out our latest review of "Epic Adventure Game" and subscribe for weekly gaming tips!
+        🎉 What's New: Check out our latest review of "Minecraft" and subscribe for weekly gaming tips!
     </div>
 
     <main>
@@ -437,111 +428,114 @@
         <section class="featured-section container" id="featured">
             <h2 class="section-title">Featured Reviews</h2>
             <div class="featured-grid">
-                <!-- MAIN FEATURED REVIEW -->
+                <!-- MAIN FEATURED REVIEW: Minecraft -->
                 <article class="featured-main">
-                    <div class="featured-image">🎮 Game Screenshot Here</div>
+                    <div class="featured-image" style="background-image:url('https://xboxwire.thesourcemediaassets.com/sites/2/2024/05/Hero-8c18da7c19a1a8811ddb.jpg'); background-size:cover; background-position:center;">
+                        <span style="display:none;">Minecraft Screenshot</span>
+                    </div>
                     <div class="featured-content">
-                        <h3 class="featured-title">Epic Adventure Game Review</h3>
+                        <h3 class="featured-title">Minecraft Review</h3>
                         <div class="featured-meta">
-                            <span class="genre-tag">Action RPG</span>
+                            <span class="genre-tag">Sandbox</span>
                             <div class="rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="score">9.5/10</span>
+                                <span class="stars">★★★★☆</span>
+                                <span class="score">8/10</span>
                             </div>
                         </div>
                         <p class="featured-excerpt">
-                            An absolutely stunning masterpiece that redefines what we expect from modern RPGs. 
-                            With breathtaking visuals, compelling storytelling, and gameplay that keeps you 
-                            engaged for hours on end, this is a must-play title for any gaming enthusiast.
+                            Minecraft is the ultimate sandbox adventure, letting you build, survive, and explore infinite worlds. Its creative freedom, endless updates, and thriving community make it a timeless classic for gamers of all ages.
                         </p>
-                        <button class="read-more" onclick="showAlert('Opening full review...')">Read Full Review</button>
+                        <button class="read-more" onclick="location.href='minecraft.html'">Read Full Review</button>
                     </div>
                 </article>
                 <!-- QUICK REVIEWS SIDEBAR -->
                 <aside class="quick-reviews">
                     <article class="quick-review-card">
-                        <h4 class="quick-title">Indie Puzzle Masterpiece</h4>
+                        <h4 class="quick-title">PUBG: Battlegrounds</h4>
+                        <div class="quick-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="score">9/10</span>
+                        </div>
+                        <p class="quick-excerpt">
+                            Battle royale at its best! PUBG delivers tense, tactical action and unforgettable moments.
+                        </p>
+                        <button class="read-more" onclick="location.href='pubg.html'">Read Full Review</button>
+                    </article>
+                    <article class="quick-review-card">
+                        <h4 class="quick-title">Assassin's Creed Mirage</h4>
                         <div class="quick-rating">
                             <span class="stars">★★★★☆</span>
                             <span class="score">8.5/10</span>
                         </div>
                         <p class="quick-excerpt">
-                            A brilliant puzzle game that challenges your mind with creative mechanics and beautiful art.
+                            A return to classic stealth and parkour, Mirage is a beautiful journey through ancient cities.
                         </p>
+                        <button class="read-more" onclick="location.href='assassinscreedmirage.html'">Read Full Review</button>
                     </article>
                     <article class="quick-review-card">
-                        <h4 class="quick-title">Racing Simulator Pro</h4>
+                        <h4 class="quick-title">Diablo 4</h4>
                         <div class="quick-rating">
                             <span class="stars">★★★★★</span>
-                            <span class="score">9.2/10</span>
+                            <span class="score">9/10</span>
                         </div>
                         <p class="quick-excerpt">
-                            The most realistic racing experience you can get without leaving your living room.
+                            Dark, addictive, and action-packed. Diablo 4 is a loot-filled adventure you won't want to put down.
                         </p>
-                    </article>
-                    <article class="quick-review-card">
-                        <h4 class="quick-title">Horror Game Nightmare</h4>
-                        <div class="quick-rating">
-                            <span class="stars">★★★☆☆</span>
-                            <span class="score">7.0/10</span>
-                        </div>
-                        <p class="quick-excerpt">
-                            Great atmosphere and scares, but falls short on gameplay mechanics and story depth.
-                        </p>
+                        <button class="read-more" onclick="location.href='diablo4.html'">Read Full Review</button>
                     </article>
                 </aside>
             </div>
             <!-- RECENT REVIEWS GRID -->
             <div class="recent-reviews">
                 <article class="review-card">
-                    <div class="review-image">🏗️ Game Screenshot Here</div>
+                    <div class="review-image">🎯</div>
                     <div class="review-content">
-                        <h3 class="review-title">Strategy Empire Builder</h3>
+                        <h3 class="review-title">Fortnite</h3>
                         <div class="review-meta">
-                            <span class="genre-tag">Strategy</span>
+                            <span class="genre-tag">Battle Royale</span>
                             <div class="rating">
-                                <span class="stars">★★★★☆</span>
-                                <span class="score">8.0/10</span>
+                                <span class="stars">★★★☆☆</span>
+                                <span class="score">7/10</span>
                             </div>
                         </div>
                         <p class="review-excerpt">
-                            A deep and engaging strategy game that will keep you building and conquering for hours.
+                            Fortnite is still a cultural phenomenon, but its gameplay can feel repetitive for some.
                         </p>
-                        <button class="read-more" onclick="showAlert('Opening review...')">Read Review</button>
+                        <button class="read-more" onclick="location.href='fortnite.html'">Read Review</button>
                     </div>
                 </article>
                 <article class="review-card">
-                    <div class="review-image">🚀 Game Screenshot Here</div>
+                    <div class="review-image">🤠</div>
                     <div class="review-content">
-                        <h3 class="review-title">Space Exploration Odyssey</h3>
+                        <h3 class="review-title">Red Dead Redemption 2</h3>
                         <div class="review-meta">
                             <span class="genre-tag">Adventure</span>
                             <div class="rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="score">9.8/10</span>
+                                <span class="stars">★★★☆☆</span>
+                                <span class="score">7/10</span>
                             </div>
                         </div>
                         <p class="review-excerpt">
-                            An incredible journey through the cosmos with stunning visuals and compelling narrative.
+                            A breathtaking Wild West world, but the slow pace isn't for everyone. Still, a must-play for story lovers.
                         </p>
-                        <button class="read-more" onclick="showAlert('Opening review...')">Read Review</button>
+                        <button class="read-more" onclick="location.href='rdr2.html'">Read Review</button>
                     </div>
                 </article>
                 <article class="review-card">
-                    <div class="review-image">⚔️ Game Screenshot Here</div>
+                    <div class="review-image">🔫</div>
                     <div class="review-content">
-                        <h3 class="review-title">Multiplayer Battle Arena</h3>
+                        <h3 class="review-title">Call of Duty: Warzone</h3>
                         <div class="review-meta">
-                            <span class="genre-tag">Multiplayer</span>
+                            <span class="genre-tag">Shooter</span>
                             <div class="rating">
-                                <span class="stars">★★★★☆</span>
-                                <span class="score">8.7/10</span>
+                                <span class="stars">★★★★★</span>
+                                <span class="score">9/10</span>
                             </div>
                         </div>
                         <p class="review-excerpt">
-                            Fast-paced action with excellent multiplayer mechanics and competitive gameplay.
+                            Fast, frantic, and always exciting—Warzone is a top-tier free battle royale shooter.
                         </p>
-                        <button class="read-more" onclick="showAlert('Opening review...')">Read Review</button>
+                        <button class="read-more" onclick="location.href='codwarzone.html'">Read Review</button>
                     </div>
                 </article>
             </div>
@@ -552,7 +546,7 @@
             <h2 class="newsletter-title">Stay Updated with Gaming News</h2>
             <p>Get the latest reviews, news, and gaming tips delivered to your inbox</p>
             <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
-                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required />
                 <button type="submit" class="newsletter-btn">Subscribe</button>
             </form>
         </section>
