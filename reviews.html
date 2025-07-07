@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Reviews - GameCritic Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,23 +20,24 @@
         }
         header {
             background: linear-gradient(135deg, rgba(102,126,234,0.95) 0%, rgba(118,75,162,0.95) 50%, rgba(255,107,107,0.95) 100%);
-            padding: 0.8rem 0;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         nav.container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            gap: 2rem;
         }
         .logo {
-            font-size: 1.6rem;
+            font-size: 2rem;
             font-weight: bold;
             color: white;
             text-decoration: none;
+            margin-right: 2rem;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -123,6 +124,8 @@
             transition: box-shadow 0.3s, transform 0.3s;
             cursor: pointer;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         .game-card:hover {
             transform: translateY(-8px);
@@ -139,8 +142,15 @@
             font-size: 1.2rem;
             font-weight: bold;
         }
+        .game-image.minecraft {
+            background: url('https://xboxwire.thesourcemediaassets.com/sites/2/2024/05/Hero-8c18da7c19a1a8811ddb.jpg') center center/cover no-repeat;
+            font-size: 0;
+        }
         .game-info {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
         .game-title {
             font-size: 1.3rem;
@@ -174,6 +184,7 @@
             color: #666;
             line-height: 1.5;
             margin-bottom: 1rem;
+            flex: 1;
         }
         .release-date {
             color: #888;
@@ -256,22 +267,60 @@
         <section class="filter-section">
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">All Games</button>
+                <button class="filter-btn" data-filter="sandbox">Sandbox</button>
+                <button class="filter-btn" data-filter="battle-royale">Battle Royale</button>
                 <button class="filter-btn" data-filter="action">Action</button>
-                <button class="filter-btn" data-filter="rpg">RPG</button>
                 <button class="filter-btn" data-filter="adventure">Adventure</button>
+                <button class="filter-btn" data-filter="rpg">RPG</button>
                 <button class="filter-btn" data-filter="shooter">Shooter</button>
-                <button class="filter-btn" data-filter="puzzle">Puzzle</button>
-                <button class="filter-btn" data-filter="racing">Racing</button>
             </div>
         </section>
 
         <section class="games-grid">
-            <!-- Game 1 -->
-            <div class="game-card" data-category="action" onclick="goToReview('cyberpunk-2077')">
-                <div class="game-image">🎮 Cyberpunk 2077</div>
+            <!-- Minecraft -->
+            <div class="game-card" data-category="sandbox">
+                <div class="game-image minecraft"></div>
                 <div class="game-info">
-                    <h3 class="game-title">Cyberpunk 2077</h3>
-                    <p class="game-genre">Action RPG</p>
+                    <h3 class="game-title">Minecraft</h3>
+                    <p class="game-genre">Sandbox</p>
+                    <div class="game-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="score">8/10</span>
+                    </div>
+                    <div class="platforms">
+                        <span class="platform-badge">PC</span>
+                        <span class="platform-badge">Console</span>
+                        <span class="platform-badge">Mobile</span>
+                    </div>
+                    <p class="game-description">The ultimate sandbox adventure, letting you build, survive, and explore infinite worlds. A timeless classic for all ages.</p>
+                    <button class="read-review-btn" onclick="goToReview('minecraft')">Read Full Review</button>
+                </div>
+            </div>
+            <!-- PUBG -->
+            <div class="game-card" data-category="battle-royale">
+                <div class="game-image">🎯 PUBG</div>
+                <div class="game-info">
+                    <h3 class="game-title">PUBG: Battlegrounds</h3>
+                    <p class="game-genre">Battle Royale</p>
+                    <div class="game-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="score">9/10</span>
+                    </div>
+                    <div class="platforms">
+                        <span class="platform-badge">PC</span>
+                        <span class="platform-badge">Console</span>
+                        <span class="platform-badge">Mobile</span>
+                    </div>
+                    <p class="game-description">Battle royale at its best! PUBG delivers tense, tactical action and unforgettable moments.</p>
+                    <button class="read-review-btn" onclick="goToReview('pubg')">Read Full Review</button>
+                </div>
+            </div>
+            <!-- Assassin's Creed Mirage -->
+            <div class="game-card" data-category="action">
+                <div class="game-image">🗡️ Mirage</div>
+                <div class="game-info">
+                    <h3 class="game-title">Assassin's Creed Mirage</h3>
+                    <p class="game-genre">Action / Stealth</p>
                     <div class="game-rating">
                         <span class="stars">★★★★☆</span>
                         <span class="score">8.5/10</span>
@@ -281,112 +330,84 @@
                         <span class="platform-badge">PS5</span>
                         <span class="platform-badge">Xbox</span>
                     </div>
-                    <p class="game-description">A sprawling open-world RPG set in the dystopian Night City. Despite its rocky launch, the game has evolved into something truly special.</p>
-                    <p class="release-date">Released: December 10, 2020</p>
-                    <button class="read-review-btn">Read Full Review</button>
+                    <p class="game-description">A return to classic stealth and parkour, Mirage is a beautiful journey through ancient cities.</p>
+                    <button class="read-review-btn" onclick="goToReview('assassinscreedmirage')">Read Full Review</button>
                 </div>
             </div>
-
-            <!-- Game 2 -->
-            <div class="game-card" data-category="adventure" onclick="goToReview('zelda-breath-of-wild')">
-                <div class="game-image">🏹 Zelda: Breath of Wild</div>
+            <!-- Diablo 4 -->
+            <div class="game-card" data-category="rpg">
+                <div class="game-image">🔥 Diablo 4</div>
                 <div class="game-info">
-                    <h3 class="game-title">The Legend of Zelda: Breath of the Wild</h3>
-                    <p class="game-genre">Adventure</p>
-                    <div class="game-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="score">9.8/10</span>
-                    </div>
-                    <div class="platforms">
-                        <span class="platform-badge">Switch</span>
-                        <span class="platform-badge">Wii U</span>
-                    </div>
-                    <p class="game-description">A masterpiece that redefined open-world gaming. Every hill you see can be climbed, every problem has multiple solutions.</p>
-                    <p class="release-date">Released: March 3, 2017</p>
-                    <button class="read-review-btn">Read Full Review</button>
-                </div>
-            </div>
-
-            <!-- Game 3 -->
-            <div class="game-card" data-category="shooter" onclick="goToReview('call-of-duty-modern-warfare')">
-                <div class="game-image">🔫 Call of Duty MW</div>
-                <div class="game-info">
-                    <h3 class="game-title">Call of Duty: Modern Warfare</h3>
-                    <p class="game-genre">First-Person Shooter</p>
-                    <div class="game-rating">
-                        <span class="stars">★★★★☆</span>
-                        <span class="score">8.2/10</span>
-                    </div>
-                    <div class="platforms">
-                        <span class="platform-badge">PC</span>
-                        <span class="platform-badge">PS4</span>
-                        <span class="platform-badge">Xbox</span>
-                    </div>
-                    <p class="game-description">A return to form for the franchise with intense multiplayer action and a gripping single-player campaign.</p>
-                    <p class="release-date">Released: October 25, 2019</p>
-                    <button class="read-review-btn">Read Full Review</button>
-                </div>
-            </div>
-
-            <!-- Game 4 -->
-            <div class="game-card" data-category="rpg" onclick="goToReview('elden-ring')">
-                <div class="game-image">⚔️ Elden Ring</div>
-                <div class="game-info">
-                    <h3 class="game-title">Elden Ring</h3>
+                    <h3 class="game-title">Diablo 4</h3>
                     <p class="game-genre">Action RPG</p>
                     <div class="game-rating">
                         <span class="stars">★★★★★</span>
-                        <span class="score">9.5/10</span>
+                        <span class="score">9/10</span>
                     </div>
                     <div class="platforms">
                         <span class="platform-badge">PC</span>
                         <span class="platform-badge">PS5</span>
                         <span class="platform-badge">Xbox</span>
                     </div>
-                    <p class="game-description">FromSoftware's magnum opus combines Dark Souls gameplay with an open world crafted by George R.R. Martin.</p>
-                    <p class="release-date">Released: February 25, 2022</p>
-                    <button class="read-review-btn">Read Full Review</button>
+                    <p class="game-description">Dark, addictive, and action-packed. Diablo 4 is a loot-filled adventure you won't want to put down.</p>
+                    <button class="read-review-btn" onclick="goToReview('diablo4')">Read Full Review</button>
                 </div>
             </div>
-
-            <!-- Game 5 -->
-            <div class="game-card" data-category="racing" onclick="goToReview('forza-horizon-5')">
-                <div class="game-image">🏎️ Forza Horizon 5</div>
+            <!-- Fortnite -->
+            <div class="game-card" data-category="battle-royale">
+                <div class="game-image">🕹️ Fortnite</div>
                 <div class="game-info">
-                    <h3 class="game-title">Forza Horizon 5</h3>
-                    <p class="game-genre">Racing</p>
+                    <h3 class="game-title">Fortnite</h3>
+                    <p class="game-genre">Battle Royale</p>
                     <div class="game-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="score">9.2/10</span>
+                        <span class="stars">★★★☆☆</span>
+                        <span class="score">7/10</span>
                     </div>
                     <div class="platforms">
                         <span class="platform-badge">PC</span>
+                        <span class="platform-badge">Console</span>
+                        <span class="platform-badge">Mobile</span>
+                    </div>
+                    <p class="game-description">Fortnite is still a cultural phenomenon, but its gameplay can feel repetitive for some.</p>
+                    <button class="read-review-btn" onclick="goToReview('fortnite')">Read Full Review</button>
+                </div>
+            </div>
+            <!-- Red Dead Redemption 2 -->
+            <div class="game-card" data-category="adventure">
+                <div class="game-image">🤠 RDR2</div>
+                <div class="game-info">
+                    <h3 class="game-title">Red Dead Redemption 2</h3>
+                    <p class="game-genre">Adventure</p>
+                    <div class="game-rating">
+                        <span class="stars">★★★☆☆</span>
+                        <span class="score">7/10</span>
+                    </div>
+                    <div class="platforms">
+                        <span class="platform-badge">PC</span>
+                        <span class="platform-badge">PS4</span>
                         <span class="platform-badge">Xbox</span>
                     </div>
-                    <p class="game-description">The ultimate racing playground set in beautiful Mexico. Stunning visuals and incredible car selection make this a must-play.</p>
-                    <p class="release-date">Released: November 9, 2021</p>
-                    <button class="read-review-btn">Read Full Review</button>
+                    <p class="game-description">A breathtaking Wild West world, but the slow pace isn't for everyone. Still, a must-play for story lovers.</p>
+                    <button class="read-review-btn" onclick="goToReview('rdr2')">Read Full Review</button>
                 </div>
             </div>
-
-            <!-- Game 6 -->
-            <div class="game-card" data-category="puzzle" onclick="goToReview('portal-2')">
-                <div class="game-image">🔮 Portal 2</div>
+            <!-- COD Warzone -->
+            <div class="game-card" data-category="shooter">
+                <div class="game-image">🔫 Warzone</div>
                 <div class="game-info">
-                    <h3 class="game-title">Portal 2</h3>
-                    <p class="game-genre">Puzzle</p>
+                    <h3 class="game-title">Call of Duty: Warzone</h3>
+                    <p class="game-genre">Shooter</p>
                     <div class="game-rating">
                         <span class="stars">★★★★★</span>
-                        <span class="score">9.7/10</span>
+                        <span class="score">9/10</span>
                     </div>
                     <div class="platforms">
                         <span class="platform-badge">PC</span>
-                        <span class="platform-badge">PS3</span>
-                        <span class="platform-badge">Xbox 360</span>
+                        <span class="platform-badge">PS5</span>
+                        <span class="platform-badge">Xbox</span>
                     </div>
-                    <p class="game-description">A brilliant puzzle game with perfect writing, innovative mechanics, and unforgettable characters. A true masterpiece.</p>
-                    <p class="release-date">Released: April 19, 2011</p>
-                    <button class="read-review-btn">Read Full Review</button>
+                    <p class="game-description">Fast, frantic, and always exciting—Warzone is a top-tier free battle royale shooter.</p>
+                    <button class="read-review-btn" onclick="goToReview('codwarzone')">Read Full Review</button>
                 </div>
             </div>
         </section>
@@ -421,7 +442,7 @@
 
         // Function to go to individual review page
         function goToReview(gameId) {
-            window.location.href = `review-${gameId}.html`;
+            window.location.href = `${gameId}.html`;
         }
     </script>
 </body>
