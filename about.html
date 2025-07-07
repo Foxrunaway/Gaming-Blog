@@ -8,7 +8,7 @@
     :root {
       --accent: #4ecdc4;
       --purple: #764ba2;
-      --blue: #667eea;
+      --purple2: #667eea;
       --red: #ff6b6b;
       --bg-light: #f7f8fa;
       --text-dark: #232323;
@@ -16,12 +16,12 @@
     }
     body {
       font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-      background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+      background: linear-gradient(135deg, var(--purple2) 0%, var(--purple) 100%);
       margin: 0;
       color: var(--text-dark);
     }
     header {
-      background: rgba(255,255,255,0.85);
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple2) 100%);
       box-shadow: 0 2px 16px rgba(102,126,234,0.07);
       padding: 0;
     }
@@ -36,7 +36,7 @@
     .logo {
       font-size: 2rem;
       font-weight: bold;
-      background: linear-gradient(45deg, var(--red), var(--accent), var(--blue));
+      background: linear-gradient(45deg, var(--red), var(--accent), var(--purple2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -49,7 +49,7 @@
       list-style: none;
     }
     .nav-links a {
-      color: var(--text-dark);
+      color: #fff;
       text-decoration: none;
       padding: 0.5rem 1.2rem;
       border-radius: 16px;
@@ -83,7 +83,7 @@
     .hero-left h1 {
       font-size: 2.7rem;
       margin: 0 0 1rem 0;
-      background: linear-gradient(45deg, var(--blue), var(--purple));
+      background: linear-gradient(45deg, var(--purple2), var(--purple));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -128,7 +128,7 @@
     .info-card h2 {
       margin: 0 0 0.7rem 0;
       font-size: 1.3rem;
-      color: var(--blue);
+      color: var(--purple2);
       letter-spacing: 0.5px;
     }
     .info-card p {
@@ -147,7 +147,7 @@
     }
     .stat-card {
       flex: 1 1 180px;
-      background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+      background: linear-gradient(135deg, var(--purple2) 0%, var(--purple) 100%);
       color: #fff;
       border-radius: 16px;
       padding: 1.3rem 1.2rem;
@@ -218,7 +218,7 @@
     }
     /* Mission Block */
     .mission-section {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--blue) 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--purple2) 100%);
       color: #fff;
       border-radius: 20px;
       max-width: 700px;
@@ -237,7 +237,7 @@
     }
     /* Footer */
     footer {
-      background: rgba(0,0,0,0.92);
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple2) 100%);
       color: #fff;
       text-align: center;
       padding: 2rem 0 1.2rem 0;
