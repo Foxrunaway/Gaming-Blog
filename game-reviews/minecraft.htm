@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft Review - GameCritic Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #222;
+            margin: 0;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, rgba(102,126,234,0.95) 0%, rgba(118,75,162,0.95) 50%, rgba(255,107,107,0.95) 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: 1px;
+            margin-right: 2rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 16px;
+            font-weight: 500;
+            background: none;
+        }
+        .nav-links a.active {
+            background: rgba(255,255,255,0.2);
+            color: #4ecdc4;
+        }
+        .review-container {
+            max-width: 700px;
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 12px 48px rgba(102,126,234,0.13);
+            margin: 2.5rem auto 2rem auto;
+            overflow: hidden;
+        }
+        .review-header-img {
+            width: 100%;
+            height: 260px;
+            background: #333;
+            background-image: url('https://xboxwire.thesourcemediaassets.com/sites/2/2024/05/Hero-8c18da7c19a1a8811ddb.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .review-content {
+            padding: 2.2rem 2rem 2rem 2rem;
+        }
+        .review-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 0.4rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .review-meta {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .genre-tag {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+        .score {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+        }
+        .review-section {
+            margin-bottom: 1.5rem;
+        }
+        .review-section h2 {
+            font-size: 1.2rem;
+            color: #764ba2;
+            margin-bottom: 0.6rem;
+            margin-top: 1.2rem;
+        }
+        .review-section ul {
+            margin: 0.5rem 0 0 1.2rem;
+            padding: 0;
+        }
+        .review-section ul li {
+            margin-bottom: 0.3rem;
+        }
+        .fact-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-bottom: 1.3rem;
+        }
+        .fact-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 0.7rem 1.2rem;
+            font-size: 1rem;
+            color: #444;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .fact-icon {
+            font-size: 1.2rem;
+        }
+        .review-footer {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #eee;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #4ecdc4;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 20px;
+            padding: 0.5rem 1.2rem;
+            background: #f7f8fa;
+            transition: background 0.2s;
+        }
+        .back-link:hover {
+            background: #e6f9f8;
+        }
+        @media (max-width: 700px) {
+            .review-container { border-radius: 12px; }
+            .review-header-img { height: 160px; }
+            .review-content { padding: 1.2rem 0.7rem 1rem 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">GameCritic Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="guides.html">Guides</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="review-container">
+            <div class="review-header-img"></div>
+            <div class="review-content">
+                <div class="review-title">Minecraft</div>
+                <div class="review-meta">
+                    <span class="genre-tag">Sandbox</span>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="score">8/10</span>
+                    </div>
+                </div>
+
+                <div class="fact-list">
+                    <span class="fact-item"><span class="fact-icon">💻</span> PC</span>
+                    <span class="fact-item"><span class="fact-icon">🎮</span> Console</span>
+                    <span class="fact-item"><span class="fact-icon">📱</span> Mobile</span>
+                    <span class="fact-item"><span class="fact-icon">🌍</span> Multiplayer</span>
+                    <span class="fact-item"><span class="fact-icon">🛠️</span> Mods Supported</span>
+                </div>
+
+                <div class="review-section">
+                    <h2>Why Minecraft is Awesome</h2>
+                    <ul>
+                        <li><strong>Super creative:</strong> You can build anything you want. Castles, rollercoasters, giant pixel art, or even your own city!</li>
+                        <li><strong>Great for kids:</strong> It’s really safe and nonviolent (unless you count fighting skeletons and zombies, but it’s all blocky and not scary).</li>
+                        <li><strong>Play with friends:</strong> You can join your friends’ worlds or play online with people from all over the world.</li>
+                        <li><strong>Endless possibilities:</strong> There’s no “right” way to play. You can survive, build, explore, or just mess around.</li>
+                    </ul>
+                </div>
+
+                <div class="review-section">
+                    <h2>Some Downsides</h2>
+                    <ul>
+                        <li>It can get a little repetitive if you play alone for a long time.</li>
+                        <li>Some servers have mean people (but you can play single player or with friends to avoid that).</li>
+                        <li>If you want the best graphics, you’ll need mods or a good computer.</li>
+                    </ul>
+                </div>
+
+                <div class="review-section">
+                    <h2>Cool Features</h2>
+                    <ul>
+                        <li>Survival and Creative modes</li>
+                        <li>Redstone for making machines and secret doors</li>
+                        <li>Villages, animals, and lots of mobs</li>
+                        <li>Custom skins and texture packs</li>
+                        <li>Updates add new stuff all the time</li>
+                    </ul>
+                </div>
+
+                <div class="review-footer">
+                    <strong>Final Thoughts:</strong> <br>
+                    Minecraft is one of my favorite games ever. It’s really fun, especially with friends, and you can always find something new to do. If you like building, adventures, or just want a chill game, you should try it!
+                </div>
+                <a href="reviews.html" class="back-link">&larr; Back to Reviews</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container" style="text-align:center; color:#fff;">
+            <p>&copy; 2025 GameCritic Hub. All rights reserved.</p>
+            <p>Contact: foxpollard2013@gmail.com | A young gamer's blog</p>
+        </div>
+    </footer>
+</body>
+</html>
 
