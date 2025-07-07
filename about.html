@@ -6,54 +6,247 @@
     <title>About - GameCritic Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 50%, rgba(255, 107, 107, 0.95) 100%); backdrop-filter: blur(20px); padding: 0.8rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
-        header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); animation: shimmer 3s infinite; }
-        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-        nav { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
-        .logo { font-size: 1.6rem; font-weight: bold; color: white; text-decoration: none; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 30px rgba(255, 255, 255, 0.5); transition: all 0.3s ease; }
-        .logo:hover { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.6)); }
-        .nav-links { display: flex; list-style: none; gap: 1.5rem; position: relative; z-index: 2; }
-        .nav-links a { color: white; text-decoration: none; transition: all 0.3s ease; font-weight: 500; padding: 0.5rem 1rem; border-radius: 20px; position: relative; overflow: hidden; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 0.9rem; }
-        .nav-links a:hover { color: #4ecdc4; background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
-        .nav-links a.active { background: rgba(255, 255, 255, 0.2); color: #4ecdc4; }
-        main { background: white; margin: 2rem 0; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); overflow: hidden; }
-        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 2rem; text-align: center; position: relative; overflow: hidden; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); position: relative; z-index: 2; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; position: relative; z-index: 2; }
-        .about-content { padding: 3rem 2rem; }
-        .about-section { margin-bottom: 3rem; animation: fadeInUp 0.6s ease-out; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .about-section h2 { font-size: 2rem; margin-bottom: 1rem; color: #333; background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .about-section p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: #555; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0; }
-        .stat-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 15px; text-align: center; color: white; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; }
-        .stat-number { font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; }
-        .stat-label { font-size: 1rem; opacity: 0.9; }
-        .mission-section { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 3rem 2rem; border-radius: 15px; margin: 3rem 0; text-align: center; position: relative; overflow: hidden; }
-        .mission-section::before { content: '🎮'; position: absolute; top: -20px; right: -20px; font-size: 8rem; opacity: 0.1; transform: rotate(15deg);}
-        .mission-section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; position: relative; z-index: 2;}
-        .mission-section p { font-size: 1.2rem; position: relative; z-index: 2;}
-        .team-section { text-align: center; margin: 3rem 0; }
-        .team-member { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); margin: 2rem auto; max-width: 600px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .team-member:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);}
-        .team-avatar { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; }
-        .team-name { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
-        .team-role { font-size: 1rem; color: #667eea; margin-bottom: 1rem; font-weight: 500; }
-        .team-bio { font-size: 1rem; color: #555; line-height: 1.6; }
-        footer { background: rgba(0, 0, 0, 0.9); color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; }
-        @media (max-width: 768px) {
-            .nav-links { flex-direction: row; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
-            .nav-links a { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
-            .hero h1 { font-size: 2rem; }
-            .about-content { padding: 2rem 1rem; }
-            .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        header {
+            background: linear-gradient(135deg, rgba(102,126,234,0.95) 0%, rgba(118,75,162,0.95) 50%, rgba(255,107,107,0.95) 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        nav.container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .logo {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+        }
+        .nav-links a.active {
+            background: rgba(255,255,255,0.2);
+            color: #4ecdc4;
+        }
+        main {
+            background: white;
+            margin: 2.5rem auto 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.13);
+            overflow: hidden;
+            padding-bottom: 2rem;
+        }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 1.5rem 2rem 1.5rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.4rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.18);
+        }
+        .hero p {
+            font-size: 1.18rem;
+            max-width: 500px;
+            margin: 0 auto;
+            opacity: 0.93;
+        }
+        .about-content {
+            margin: 0 auto;
+            padding: 2.5rem 0 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .about-section {
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            animation: fadeInUp 0.7s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .about-section h2 {
+            font-size: 1.45rem;
+            margin-bottom: 0.7rem;
+            color: #333;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .about-section p {
+            font-size: 1.07rem;
+            color: #555;
+            margin-bottom: 0.7rem;
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.2rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            min-width: 140px;
+            flex: 1 1 160px;
+            max-width: 200px;
+            box-shadow: 0 4px 18px rgba(102,126,234,0.07);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.92;
+        }
+        .team-section {
+            text-align: center;
+            margin: 2.5rem 0 1.5rem 0;
+        }
+        .team-section h2 {
+            font-size: 1.45rem;
+            margin-bottom: 1.2rem;
+            color: #333;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .team-member {
+            background: #f7f8fa;
+            padding: 2rem 1rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 24px rgba(102,126,234,0.09);
+            margin: 0 auto;
+            max-width: 360px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(102,126,234,0.13);
+        }
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            margin: 0 auto 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.6rem;
+            color: white;
+        }
+        .team-name {
+            font-size: 1.22rem;
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+        }
+        .team-role {
+            font-size: 1rem;
+            color: #667eea;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+        }
+        .team-bio {
+            font-size: 0.98rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .mission-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.3rem 1.2rem;
+            border-radius: 15px;
+            margin: 2.5rem auto 0 auto;
+            text-align: center;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+        .mission-section h2 {
+            font-size: 1.38rem;
+            margin-bottom: 1rem;
+            color: #333;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .mission-section p {
+            font-size: 1.08rem;
+            color: #444;
+        }
+        .mission-section::before {
+            content: '🎮';
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            font-size: 6rem;
+            opacity: 0.07;
+            transform: rotate(13deg);
+        }
+        footer {
+            background: rgba(0,0,0,0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0 1.2rem 0;
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+        @media (max-width: 600px) {
+            .container, main { padding: 0 4px; }
+            .hero h1 { font-size: 1.45rem; }
+            .about-section h2, .team-section h2, .mission-section h2 { font-size: 1.1rem; }
+            .stat-card { min-width: 100px; padding: 1rem 0.7rem; }
+            .stats-grid { gap: 0.7rem; }
         }
     </style>
 </head>
 <body>
-
     <header>
         <nav class="container">
             <a href="index.html" class="logo">GameCritic Hub</a>
