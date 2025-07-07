@@ -1,1 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Guides - GameCritic Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 50%, rgba(255, 107, 107, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: #4ecdc4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .filter-tab.active {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 25px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        }
+
+        .search-btn {
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Guides Grid */
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .guide-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            pointer-events: none;
+        }
+
+        .guide-content {
+            padding: 1.5rem;
+        }
+
+        .guide-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .guide-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .guide-type {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .guide-difficulty {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .guide-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .guide-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .read-guide-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .read-guide-btn:hover {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            transform: translateY(-2px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .widget h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .popular-guides {
+            list-style: none;
+        }
+
+        .popular-guides li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .popular-guides li:hover {
+            background: rgba(78, 205, 196, 0.1);
+            border-radius: 10px;
+            padding-left: 1rem;
+        }
+
+        .popular-guides a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .popular-guides a:hover {
+            color: #4ecdc4;
+        }
+
+        .ad-space {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
+            border: 2px dashed rgba(102, 126, 234, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-tabs {
+                justify-content: center;
+            }
+            
+            .search-bar {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">GameCritic Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="guides.html" class="active">Guides</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h1>Game Guides & Walkthroughs</h1>
+            <p>Master your favorite games with our comprehensive guides, tips, and strategies</p>
+        </section>
+
+        <!-- FILTER SECTION -->
+        <section class="filter-section">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Guides</button>
+                <button class="filter-tab" data-filter="walkthrough">Walkthroughs</button>
+                <button class="filter-tab" data-filter="tips">Tips & Tricks</button>
+                <button class="filter-tab" data-filter="beginner">Beginner</button>
+                <button class="filter-tab" data-filter="advanced">Advanced</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search guides...">
+                <button class="search-btn">Search</button>
+            </div>
+        </section>
+
+        <div class="content-wrapper">
+            <!-- MAIN GUIDES SECTION -->
+            <section class="guides-section">
+                <div class="guides-grid">
+                    <!-- SAMPLE GUIDE 1 -->
+                    <article class="guide-card">
+                        <div class="guide-image">Game Screenshot Here</div>
+                        <div class="guide-content">
+                            <h2 class="guide-title">Complete Walkthrough: [Game Name]</h2>
+                            <div class="guide-meta">
+                                <span class="guide-type">Walkthrough</span>
+                                <span class="guide-difficulty">Beginner</span>
+                                <span>📅 Dec 2024</span>
+                            </div>
+                            <p class="guide-description">A comprehensive step-by-step guide to completing the main story and all side quests. Perfect for first-time players.</p>
+                            <div class="guide-stats">
+                                <span>⏱️ 15 min read</span>
+                                <span>👀 2.1k views</span>
+                            </div>
+                            <button class="read-guide-btn">Read Guide</button>
+                        </div>
+                    </article>
+
+                    <!-- SAMPLE GUIDE 2 -->
+                    <article class="guide-card">
+                        <div class="guide-image">Game Screenshot Here</div>
+                        <div class="guide-content">
+                            <h2 class="guide-title">Pro Tips: [Game Name] Combat System</h2>
+                            <div class="guide-meta">
+                                <span class="guide-type">Tips & Tricks</span>
+                                <span class="guide-difficulty">Advanced</span>
+                                <span>📅 Dec 2024</span>
+                            </div>
+                            <p class="guide-description">Master the combat mechanics with these advanced strategies and hidden techniques that the game doesn't tell you.</p>
+                            <div class="guide-stats">
+                                <span>⏱️ 8 min read</span>
+                                <span>👀 1.8k views</span>
+                            </div>
+                            <button class="read-guide-btn">Read Guide</button>
+                        </div>
+                    </article>
+
+                    <!-- SAMPLE GUIDE 3 -->
+                    <article class="guide-card">
+                        <div class="guide-image">Game Screenshot Here</div>
+                        <div class="guide-content">
+                            <h2 class="guide-title">Beginner's Guide: [Game Name] Basics</h2>
+                            <div class="guide-meta">
+                                <span class="guide-type">Beginner</span>
+                                <span class="guide-difficulty">Beginner</span>
+                                <span>📅 Dec 2024</span>
+                            </div>
+                            <p class="guide-description">New to the game? Start here! Learn the essential mechanics, controls, and strategies to get you started.</p>
+                            <div class="guide-stats">
+                                <span>⏱️ 12 min read</span>
+                                <span>👀 3.2k views</span>
+                            </div>
+                            <button class="read-guide-btn">Read Guide</button>
+                        </div>
+                    </article>
+
+                    <!-- SAMPLE GUIDE 4 -->
+                    <article class="guide-card">
+                        <div class="guide-image">Game Screenshot Here</div>
+                        <div class="guide-content">
+                            <h2 class="guide-title">Hidden Secrets & Easter Eggs</h2>
+                            <div class="guide-meta">
+                                <span class="guide-type">Secrets</span>
+                                <span class="guide-difficulty">Intermediate</span>
+                                <span>📅 Dec 2024</span>
+                            </div>
+                            <p class="guide-description">Discover all the hidden secrets, easter eggs, and unlockable content that you might have missed.</p>
+                            <div class="guide-stats">
+                                <span>⏱️ 10 min read</span>
+                                <span>👀 1.5k views</span>
+                            </div>
+                            <button class="read-guide-btn">Read Guide</button>
+                        </div>
+                    </article>
+
+                    <!-- SAMPLE GUIDE 5 -->
+                    <article class="guide-card">
+                        <div class="guide-image">Game Screenshot Here</div>
+                        <div class="guide-content">
+                            <h2 class="guide-title">Achievement Hunter's Guide</h2>
+                            <div class="guide-meta">
+                                <span class="guide-type">Achievements</span>
+                                <span class="guide-difficulty">Advanced</span>
+                                <span>📅 Dec 2024</span>
+                            </div>
+                            <p class="guide-description">Unlock every achievement and trophy with our detailed guide covering all the tricky and missable ones.</p>
+                            <div class="guide-stats">
+                                <span>⏱️ 20 min read</span>
+                                <span>👀 2.8k views</span>
+                            </div>
+                            <button class="read-guide-btn">Read Guide</button>
+                        </div>
+                    </article>
+
+                    <!-- SAMPLE GUIDE 6 -->
+                    <article class="guide-card">
+                        <div class="guide-image">Game Screenshot Here</div>
+                        <div class="guide-content">
+                            <h2 class="guide-title">Build Optimization Guide</h2>
+                            <div class="guide-meta">
+                                <span class="guide-type">Strategy</span>
+                                <span class="guide-difficulty">Advanced</span>
+                                <span>📅 Dec 2024</span>
+                            </div>
+                            <p class="guide-description">Optimize your character builds and loadouts for maximum effectiveness in different game modes.</p>
+                            <div class="guide-stats">
+                                <span>⏱️ 18 min read</span>
+                                <span>👀 1.9k views</span>
+                            </div>
+                            <button class="read-guide-btn">Read Guide</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SIDEBAR SECTION -->
+            <aside class="sidebar">
+                <!-- POPULAR GUIDES -->
+                <div class="widget">
+                    <h3>🔥 Popular Guides</h3>
+                    <ul class="popular-guides">
+                        <li><a href="#">Ultimate Beginner's Guide to RPGs</a></li>
+                        <li><a href="#">Top 10 Gaming Tips for 2024</a></li>
+                        <li><a href="#">Complete Achievement Guide</a></li>
+                        <li><a href="#">Advanced Combat Strategies</a></li>
+                        <li><a href="#">Hidden Secrets Revealed</a></li>
+                    </ul>
+                </div>
+
+
+
+                <!-- AD SPACE -->
+                <div class="widget">
+                    <div class="ad-space">
+                        <h3>Advertisement</h3>
+                        <p>Your Google AdSense ads will go here</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GameCritic Hub. All rights reserved.</p>
+            <p>Contact: foxpollard2013@gmail.com | Follow us on social media</p>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const guideCards = document.querySelectorAll('.guide-card');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                const filter = tab.getAttribute('data-filter');
+                
+                // Show/hide guide cards based on filter
+                guideCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const guideType = card.querySelector('.guide-type').textContent.toLowerCase();
+                        if (guideType.includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        const searchBtn = document.querySelector('.search-btn');
+
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                // If search is empty, show all cards
+                guideCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                return;
+            }
+            
+            guideCards.forEach(card => {
+                const title = card.querySelector('.guide-title').textContent.toLowerCase();
+                const description = card.querySelector('.guide-description').textContent.toLowerCase();
+                const guideType = card.querySelector('.guide-type').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm) || guideType.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Real-time search as user types
+        searchInput.addEventListener('input', performSearch);
+
+        // Add hover effects for guide cards
+        guideCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
